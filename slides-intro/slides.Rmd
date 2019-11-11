@@ -1,0 +1,185 @@
+---
+title: "Introduction to Data Science"
+author: "Team Algoritma"
+date: "`r Sys.Date()`"
+output: 
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["zoom", "notes", "chalkboard", "menu"]
+    reveal_options:
+      center: TRUE
+      chalkboard: 
+        theme: black
+        css: assets/style.css
+        toggleNotesButton: true
+      menu:
+        numbers: true
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  fig.asp = 0.75,
+  fig.align = "center",
+  out.width = "100%",
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{r, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(stringi)
+library(knitr)
+```
+
+# Disclaimer
+
+---
+
+```{r, echo=FALSE, out.width="45%", fig.align="left"}
+knitr::include_graphics("assets/logo.png")
+```
+
+<br>
+
+The following presentation is produced by the team at [Algoritma](https://algorit.ma) for Data Science Role in Industry 4.0 workshops. This presentation is intended for a restricted audience only. It may not be reproduced, distributed, translated or adapted in any form outside these individuals and organizations without permission.
+
+# Data Science Role in Industry 4.0
+
+## Industrial Revolution 4.0
+![](picture/industri4.0.PNG)
+
+## Tech Impact in Jobs in Indonesia
+![Source: Oxford Economics, Cisco](picture/tech-impact.PNG)
+
+## Demand and trend of job roles
+![Source: Future of Jobs Report 2018, World Economic Forum](picture/joblandscape.PNG)
+
+## Today's largest company
+
+![](picture/largest-company.PNG)
+
+## So, what kind of knowledge should we have?
+
+# A Data Science
+
+## What is Data Science?
+
+![](picture/data science.png){ width=60% }
+
+<style>
+.reveal section img { background:none; border:none; box-shadow:none; }
+</style>
+
+---
+
+<div style="text-align: left">
+## What are the data scientist skills needed?
+</div>
+<hr>
+- Technical Skills : Programming, Statistics, Mathematics
+- Non Technical Skills : Intellectual curiosity, Business acumen, Communication skills
+
+---
+
+# What are the tools needed?
+
+## A Programming Language
+
+![](picture/R.png){ width=25% } ![](picture/python.png){ width=30% }
+
+# Data Science Workflow
+
+---
+
+![](picture/user2019.png){width='80%'}
+
+<font size="5"><div style="text-align: right">  *JuliaStewart Lowndes at useR 2019* </font></div>
+
+---
+
+# Data Visualization
+
+---
+
+<div style="text-align: left">
+## How you will learn to tell stories with data?
+</div>
+<hr>
+
+1. Understand the context
+2. Who is your audience? What do you need them to know or do?
+3. Choose an appropriate visual display
+3. Tell a story and making point
+4. Most data visualization is done for the purpose of communication
+
+---
+
+<div style="text-align: left">
+## The Goal of Visualization
+</div>
+<hr>
+* **Exploratory**
+<br>
+ to uncover data  
+ to *analyze* data
+<br>
+<br>
+* **Explanatory**
+<br>
+ to communicate data  
+ to *present* data  
+
+---
+
+# Data Visualization Example
+
+---
+
+<div style="text-align: left">
+## Tabular Data
+</div>
+<hr>
+```{r results='asis'}
+library(stringr)
+set.seed(1020)
+dat <- read.csv("recent-grads.csv")
+kable(dat[sample(1:nrow(dat), 5),c(7,12,15,16)], caption = "Recent Grads 2018") 
+```
+
+---
+
+<div style="text-align: left">
+## Visualization
+</div>
+<hr>
+```{r echo = FALSE}
+dat2 <- dat %>% 
+  group_by(Major_category) %>% 
+  summarise(Part_time = mean(Part_time))
+```
+
+```{r echo = FALSE}
+dat2 %>% 
+  ggplot(aes(x = reorder(Major_category, Part_time), y = Part_time)) +
+  geom_col(aes(fill = Part_time)) +
+  coord_flip() +
+  labs(title = "Mean of Part Time based on Major Category",
+       caption = "Source: Tidy Tuesday Dataset",
+       y = NULL,
+       x = NULL) +theme_minimal() +
+  guides(fill = FALSE)
+```
+
+---
+
+# Thank you
+
+## 
+If you guys still have any questions, say hi to me at 
+
+sitta@algorit.ma
