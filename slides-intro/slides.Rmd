@@ -45,29 +45,75 @@ knitr::include_graphics("assets/logo.png")
 ```
 
 <br>
-
+<div style="text-align: left">
 The following presentation is produced by the team at [Algoritma](https://algorit.ma) for Data Science Role in Industry 4.0 workshops. This presentation is intended for a restricted audience only. It may not be reproduced, distributed, translated or adapted in any form outside these individuals and organizations without permission.
+</div>
 
 # Data Science Role in Industry 4.0
 
+---
+
+<div style="text-align: left">
 ## Industrial Revolution 4.0
+</div>
+<hr>
+
 ![](picture/industri4.0.PNG)
 
+---
+
+<div style="text-align: left">
 ## Tech Impact in Jobs in Indonesia
+</div>
+<hr>
 ![Source: Oxford Economics, Cisco](picture/tech-impact.PNG)
 
+<font size="5"><div style="text-align: right">  *Oxford Economics, Cisco* </font></div>
+
+---
+
+<div style="text-align: left">
 ## Demand and trend of job roles
+</div>
+<hr>
 ![Source: Future of Jobs Report 2018, World Economic Forum](picture/joblandscape.PNG)
 
+---
+
+<div style="text-align: left">
 ## Today's largest company
+</div>
+<hr>
 
 ![](picture/largest-company.PNG)
 
+---
+
+<div style="text-align: left">
+## Data
+</div>
+<hr>
+
+![](picture/bigdata.PNG)
+
+
+## 
+![](picture/past_future.PNG)
+
+---
+
 ## So, what kind of knowledge should we have?
+
+---
 
 # A Data Science
 
+---
+
+<div style="text-align: left">
 ## What is Data Science?
+</div>
+<hr>
 
 ![](picture/data science.png){ width=60% }
 
@@ -78,7 +124,7 @@ The following presentation is produced by the team at [Algoritma](https://algori
 ---
 
 <div style="text-align: left">
-## What are the data scientist skills needed?
+## What are skills needed to be a data scientist?
 </div>
 <hr>
 - Technical Skills : Programming, Statistics, Mathematics
@@ -88,7 +134,7 @@ The following presentation is produced by the team at [Algoritma](https://algori
 
 # What are the tools needed?
 
-## A Programming Language
+## One of the tools is Programming Language
 
 ![](picture/R.png){ width=25% } ![](picture/python.png){ width=30% }
 
@@ -167,13 +213,59 @@ dat2 <- dat %>%
 dat2 %>% 
   ggplot(aes(x = reorder(Major_category, Part_time), y = Part_time)) +
   geom_col(aes(fill = Part_time)) +
+  geom_text(aes(label = round(Part_time,2), hjust = -0.1), size = 3.5) +
   coord_flip() +
   labs(title = "Mean of Part Time based on Major Category",
        caption = "Source: Tidy Tuesday Dataset",
        y = NULL,
-       x = NULL) +theme_minimal() +
-  guides(fill = FALSE)
+       x = NULL) +
+  theme_minimal() +
+  scale_y_continuous(limits = c(0,25000)) +
+  guides(fill = FALSE) 
 ```
+
+---
+
+# A Brief intro to Machine Learning
+
+---
+
+<div style="text-align: left">
+## Machine Learning
+</div>
+<hr>
+
+![](picture/ml.png){ width=60% }
+
+<div style="text-align: left">
+Gives "computers the ability to learn without being explicitly programmed"
+</div>
+
+<font size="5"><div style="text-align: right">  *Arthur Samuel, 1959* </font></div>
+
+
+---
+
+<div style="text-align: left">
+## External Links
+</div>
+<hr>
+
+<div style="text-align: left">
+If you want to explore about R, Data Visualization, and Machine Learning: 
+</div>
+<div style="text-align: left">
+- Book about [R for data science](https://r4ds.had.co.nz/) 
+</div>
+<div style="text-align: left">
+- Book about [RMarkdown](https://bookdown.org/yihui/rmarkdown/)  
+</div>
+<div style="text-align: left">
+- About [Data Visualization using ggplot2](https://ggplot2.tidyverse.org/)  
+</div>
+<div style="text-align: left">
+- E-book about [machine learning](https://www.dropbox.com/s/e38nil1dnl7481q/machine_learning.pdf?dl=0)
+</div>
 
 ---
 
