@@ -158,10 +158,6 @@ In ggplot2, we can use one or more geometrical element. We will add another geom
 
 We want to see specific Major, then we should specify what them majors and save it in the object named `label`.
 
-```{r}
-label <- c("COMPUTER SCIENCE", "STATISTICS AND DECISION SCIENCE", "MATHEMATICS AND COMPUTER SCIENCE", "APPLIED MATHEMATICS", "MATHEMATICS")
-```
-
 Then we just put `+` to add another geometrical element as a new layer.
 
 ```{r}
@@ -181,7 +177,7 @@ ggplot(data = comp, mapping = aes(x = Median, y = Unemployment_rate)) +
   geom_jitter(mapping = aes(col = Major, size = Low_wage_jobs)) +
   geom_text_repel(mapping = aes(label = str_to_title(Major), 
                                 col = Major), 
-                  data = comp[comp$Major %in% label,])
+                  data = comp)
 ```
 
 ## Remove the legend
